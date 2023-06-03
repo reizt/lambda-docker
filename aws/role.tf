@@ -64,6 +64,16 @@ data "aws_iam_policy_document" "actions" {
       "*"
     ]
   }
+
+  statement {
+    effect = "Allow"
+    actions = [
+      "lambda:UpdateFunctionCode",
+    ]
+    resources = [
+      aws_lambda_function.this.arn,
+    ]
+  }
 }
 
 data "aws_iam_policy_document" "actions_assume_role" {

@@ -11,6 +11,12 @@ resource "aws_lambda_function" "this" {
   ]
   role         = aws_iam_role.lambda.arn
   package_type = "Image"
+
+  lifecycle {
+    ignore_changes = [
+      image_uri
+    ]
+  }
 }
 
 resource "aws_iam_role" "lambda" {
