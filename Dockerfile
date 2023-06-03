@@ -1,6 +1,4 @@
-FROM node:19-alpine
-
-WORKDIR /usr/src/app
+FROM public.ecr.aws/lambda/nodejs:18
 
 COPY lambda.js ./
 
